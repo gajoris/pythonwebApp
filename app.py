@@ -1,17 +1,18 @@
-from flask import Flask
+from flask import Flask,make_response
 
 app = Flask(__name__)
 
 @app.route('/kigali')
 def index():
-    return "  I am in time the capital of Rwanda"
+    response = make_response( "  I am in time the capital of Rwanda")
+    return  response
 @app.route('/user/<name>')
 def user(name):
-    return '<h1>Hello, %s!</h1>' % name
+    return make_response('<h1>Hello, %s!</h1>' % name)
 
 @app.route('/')
 def index1():
-    return '<h1>Hello World!</h1>'
+    return make_response('<h1>Hello World!</h1>')
 
 @app.route("/greet/<name>")
 def user2(name):
@@ -20,9 +21,11 @@ def user2(name):
 def counter(number):
         numbers =["number zero","number one","number two",'number three','number fwo','number five']
         if number <= 5:
-            return numbers[number]
+            response = make_response( numbers[number])
+            return  response
         else:
-            return " the number is unknown"
+            response = make_response( " the number is unknown")
+            return response
 if __name__ =='__main__':
     app.run(debug=True)
 
