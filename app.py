@@ -16,7 +16,7 @@ def index1():
 
 @app.route("/greet/<name>")
 def user2(name):
-    return " <h2> Morning %s</h2>" % name
+    return  make_response(" <h2> Morning %s</h2>" % name)
 @app.route("/counter/<int:number>")
 def counter(number):
         numbers =["number zero","number one","number two",'number three','number fwo','number five']
