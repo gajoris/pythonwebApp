@@ -9,10 +9,20 @@ def index():
 def user(name):
     return '<h1>Hello, %s!</h1>' % name
 
-
-if __name__ =='__main__':
-    app.run(debug=True)
-
 @app.route('/')
 def index1():
     return '<h1>Hello World!</h1>'
+
+@app.route("/greet/<name>")
+def user2(name):
+    return " <h2> Morning %s</h2>" % name
+@app.route("/counter/<int:number>")
+def counter(number):
+        numbers =["number zero","number one","number two",'number three','number fwo','number five']
+        if number <= 5:
+            return numbers[number]
+        else:
+            return " the number is unknown"
+if __name__ =='__main__':
+    app.run(debug=True)
+
